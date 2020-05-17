@@ -1,0 +1,16 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    <ul>
+    <% if user_signed_in?%>
+    <li>Hola, <%= current_user.email %>
+    <span>hisiste </span>
+    <%= current_user.count_task %>
+    <span>de 3</span>  
+    <%= link_to 'Cerrar_sesion', destroy_user_session_path, method: :delete %>
+    </li>
+    <% end %>
+    </ul>
+  </a>
+</nav>

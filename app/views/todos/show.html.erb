@@ -1,0 +1,23 @@
+
+<div class="card">
+   <% if @todo.status == true %>
+      <%= image_tag @todo.task.photo , class: 'card-image-top ', style: 'width:200px'  %>
+  <% else %>
+      <%= image_tag @todo.task.photo , class: 'card-image-top ', style: 'width: 200px', style: "filter: grayscale(100%)"  %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"> <%= @todo.task.name %></h5>
+
+     <% if @todo.status == true %>
+      <%=link_to "No listo", todo_path(@todo),method: :patch, class:"btn btn-outline-success" %>
+    <% else %>
+      <%=link_to "listo", todo_path(@todo),method: :patch, class:"btn btn-outline-danger" %>
+    <% end %>
+    <p class="card-text"><small class="text-muted">Lo hisieron tmb <%= @all %> </small></p>
+    <% @all_person.each do |person| %>
+    <%= person.user.email %>
+    <%end %>
+  </div>
+</div>
+<
+<%= link_to 'Back', todos_index_path %>

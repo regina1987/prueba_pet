@@ -1,0 +1,15 @@
+<% @tasks.each_slice(3) do |task2| %>
+<div class="card-deck">
+<%task2.each do |task| %>
+  <div class="card">
+    <%= image_tag task.photo , class: 'card-image-top img-fluid', style: 'height:250px;width:250px', style: "filter: grayscale(100%)"  %>
+    <div class="card-body">
+      <h5 class="card-title"> <%= task.name %></h5>
+      <%= link_to 'detaile', todos_show_path(task), class:"btn btn-dark" %>
+      <%=link_to "listo", todos_index_path, class:"btn btn-outline-danger" %>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+<% end %>
+</div>
+<% end %>
